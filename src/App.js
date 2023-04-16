@@ -6,12 +6,12 @@ import Text from "./Text";
 function App() {
   const [textValue, setTextValue] = useState("");
 
-  const jasylJailau =
-    "Жасыл жайлау – түкті кілем, көк кілем,\nКөк кілемде көп ойнаймын, көп күлем.\nАйдарымнан сипап өткен самалды\nҚазағымның алақаны деп білем.\n\nҚайда жүрсең, атамекен,\nКөкейіңде жатады екен.\nКүннің өзі қимай оны,\nҰясына батады екен.\n";
+  const bobDylan =
+    "How many roads must a man walk down\nBefore you call him a man?\nHow many seas must a white dove sail\nBefore she sleeps in the sand?\nYes, and how many times must the cannonballs fly\nBefore they're forever banned?\n\nThe answer, my friend, is blowin' in the wind\nThe answer is blowin' in the wind";
   const bata =
     "Құдай берсін, кем қылмасын,\nДастарханың мол болсын,\nАбыройың зор болсын.\nОтбасының байлығын берсін,\n\nДеніміздің саулығын берсін.\nКөңіліміз тоқ болсын,\nУайым - қайғы жоқ болсын.\nОтырғандарың үлкен тақ болсын.\n";
   const fatiha =
-    "бисмиллаһир рахманир рахиим\nәлхәмду лилләһи раббил ъаләмиин\nәррахманир рахиим\nмәлики йәумид диин\nиййәкә нәъбуду уәиййәкә нәстәъиин\nиһдинәс сирәтал мустәқиим\nсирәтал ләз̃иинә әнъамтә ъаләйһим\nғайрил мәғдууби ъаләйһим уәләд даллиин\n";
+    "Bismillaahir Rahmaanir Raheem\nAlhamdu lillaahi Rabbil ‘aalameen\nAr-Rahmaanir-Raheem\nMaaliki Yawmid-Deen\nIyyaaka na’budu wa lyyaaka nasta’een\nIhdinas Siraatal Mustaqeem\nSiraatal lazheena an’amta ‘alaihim\nghayril maghdoobi ‘alaihim wa lad-daalleen";
   const pushkin =
     "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.\n\nВ томленьях грусти безнадежной,\nВ тревогах шумной суеты,\nЗвучал мне долго голос нежный\nИ снились милые черты.";
   const instruction =
@@ -23,12 +23,12 @@ function App() {
 
   return (
     <>
+      <h1 className="d-flex justify-content-center">Jattap.al</h1>
       <Routes>
         <Route
           path="/"
           element={
             <div className="App">
-              <h1 className="d-flex justify-content-center">Jattap.al</h1>
               <form className="d-flex flex-column align-items-center mb-3">
                 <textarea
                   value={textValue}
@@ -40,10 +40,10 @@ function App() {
                 </Link>
               </form>
               <div className="d-flex justify-content-around mb-3">
-                <Link to="/text" state={{ myText: jasylJailau }}>
+                <Link to="/text" state={{ myText: bobDylan }}>
                   <h6>
-                    Жасыл жауйлау{"\n\n"}
-                    {jasylJailau}
+                    Bob Dylan - Blowin' in the wind{"\n\n"}
+                    {bobDylan}
                   </h6>
                 </Link>
                 <Link to="/text" state={{ myText: bata }}>
@@ -54,7 +54,7 @@ function App() {
                 </Link>
                 <Link to="/text" state={{ myText: fatiha }}>
                   <h6>
-                    Фатиха сүресі{"\n\n"}
+                    Al-Fatiha{"\n\n"}
                     {fatiha}
                   </h6>
                 </Link>

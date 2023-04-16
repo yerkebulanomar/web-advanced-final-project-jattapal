@@ -45,7 +45,11 @@ function Text(props) {
   return (
     <div>
       <div className="d-flex flex-column justify-content-center align-items-center mt-3">
-        <p id={isCovered ? "covered-text" : ""}>{location.state.myText}</p>
+        <p
+          style={{ whiteSpace: "pre-line" }}
+          id={isCovered ? "covered-text" : ""}>
+          {location.state.myText}
+        </p>
         <button className="cover-button" onClick={handleToggleCover}>
           Cover
         </button>
@@ -53,7 +57,6 @@ function Text(props) {
           <button>Back</button>
         </Link>
       </div>
-      {/* {props.location.state.myText} */}
     </div>
   );
 }
