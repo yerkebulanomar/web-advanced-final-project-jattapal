@@ -51,14 +51,15 @@ function App() {
                 <div className="d-flex flex-row nav-btns">
                   <button
                     className="nav-btn Inter-500 white"
-                    onClick={() => window.location.replace("/#instructions")}>
-                    Инструкция
-                  </button>
-                  <button
-                    className="nav-btn Inter-500 white"
                     onClick={() => window.location.replace("/#yourpoem")}>
                     Свой стих
                   </button>
+                  <button
+                    className="nav-btn Inter-500 white"
+                    onClick={() => window.location.replace("/#instructions")}>
+                    Инструкция
+                  </button>
+
                   <button
                     className="nav-btn Inter-500 white"
                     onClick={() => window.location.replace("/#examples")}>
@@ -66,13 +67,6 @@ function App() {
                   </button>
                 </div>
               </header>
-              <h3 id="instructions">
-                <span className="title-text">
-                  Jattap_al - это веб приложение для облегчения заучивания
-                  стихов и текстов{"\n\n"}
-                </span>
-                {instruction}
-              </h3>
               <form
                 className="d-flex flex-column align-items-center"
                 id="yourpoem">
@@ -88,6 +82,14 @@ function App() {
                   </button>
                 </Link>
               </form>
+              <h3 id="instructions">
+                <span className="title-text">
+                  Jattap_al - это веб приложение для облегчения заучивания
+                  стихов и текстов{"\n\n"}
+                </span>
+                {instruction}
+              </h3>
+
               <div className="d-flex flex-column" id="examples">
                 <div className="d-flex justify-content-center example-poems">
                   <Link to="/text" state={{ myText: bobDylan }}>
