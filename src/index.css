@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@500;700&family=Kanit:wght@300&display=swap");
 body {
   margin: 0;
+  background-color: #fafafa;
 }
 
 h1,
@@ -13,5 +15,5 @@ p {
 }
 
 button {
-  /* border: none; */
+  border: none;
 }
