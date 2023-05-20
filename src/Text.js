@@ -108,7 +108,7 @@ function Text(props) {
   };
 
   const coverSymbol = (line) => {
-    return line.replace(/\*/g, '<span class="symbol-overlay">*</span>');
+    return line.replace(/\#/g, '<span class="symbol-overlay">#</span>');
   };
 
   return (

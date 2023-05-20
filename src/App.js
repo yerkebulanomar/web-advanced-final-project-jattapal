@@ -45,7 +45,7 @@ function App() {
                 <button
                   className="header-name courier-white"
                   onClick={() => {
-                    window.location.replace("/#instructions");
+                    window.location.replace("/");
                   }}>
                   Jattap_al
                 </button>
