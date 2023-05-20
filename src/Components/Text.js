@@ -1,8 +1,8 @@
-import "./App.css";
+import "../App.css";
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import CreatePoem from "./CreatePoem";
-import BACK_LOGO from "./media/icons8-back-arrow-96.png";
+import BACK_LOGO from "../media/icons8-back-arrow-96.png";
 
 function Text(props) {
   const location = useLocation();
@@ -24,7 +24,7 @@ function Text(props) {
     // add +1 to current iteration to change position of covered text read
     const tempCurrentIteration = currentIteration + 1;
 
-    // если currentIteration массив не пустой, то пройти а эту часть кода
+    // если currentIteration массив не пустой, то пройти в эту часть кода
     if (coverIterations[tempCurrentIteration]) {
       setCurrentIteration(tempCurrentIteration);
       const updatedPoem = CreatePoem(
@@ -118,6 +118,10 @@ function Text(props) {
   const coverSymbol = (line) => {
     return line.replace(/\#/g, '<span class="symbol-overlay">#</span>');
   };
+
+  console.log(poemLines);
+  console.log(coverIterations);
+  console.log(currentIteration);
 
   return (
     <div>
