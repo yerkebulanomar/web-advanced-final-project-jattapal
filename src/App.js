@@ -20,10 +20,12 @@ function App() {
   const instruction =
     'Как это работает? Очень просто:\n\n1) Загрузите текст или стихотворение в приложение либо выберите один из примеров;\n2) Прочтите свой текст 2-3 раза, стараясь его запомнить;\n3) Нажав кнопку "Скрыть", приложение закроет некоторые слова. Перечитайте пару раз, пытаясь вспомнить, что скрывается за звездочками;\n4) При затруднении с помощью кнопки "Открыть" открывайте слова чтоюы их повторить;\n5) Постепенно увеличивайте сложность. Когда почти все слова будут закрыты, запомнить весь текст станет достаточно легко;\n6) Наслаждайтесь своим успехом.';
 
+  // read entered code
   const handleTextChange = (event) => {
     setTextValue(event.target.value);
   };
 
+  // autofocus on input part
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -32,6 +34,7 @@ function App() {
     }
   }, []);
 
+  // do not accept empty string
   const isTextEmpty = textValue.trim() === "";
 
   return (
@@ -40,7 +43,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="App layout">
+            <div className="App">
               <header className="d-flex justify-content-between">
                 <button
                   className="header-name courier-white"

@@ -21,7 +21,10 @@ function Text(props) {
   const [currentIteration, setCurrentIteration] = useState(-1);
 
   const handleCoverClick = () => {
+    // add +1 to current iteration to change position of covered text read
     const tempCurrentIteration = currentIteration + 1;
+
+    // если currentIteration массив не пустой, то пройти а эту часть кода
     if (coverIterations[tempCurrentIteration]) {
       setCurrentIteration(tempCurrentIteration);
       const updatedPoem = CreatePoem(
@@ -32,6 +35,8 @@ function Text(props) {
       setPoemLines(updatedPoem);
       return;
     }
+
+    // если массив пустой то заполнять его с нуля
 
     // массив из адресов закрытых слов из текста при одинарном нажатии кнопки cover
     const coverIteration = [];
@@ -53,37 +58,39 @@ function Text(props) {
         }
       );
 
-      // рандомно выбрать слово в строке которое будет скрыто и вывести его индекс
+      // рандомно выбрать слово в строке которое будет скрыто из тех что не были скрыты и вывести его индекс
       const indexToCover =
         uncoveredIndexes[Math.floor(Math.random() * uncoveredIndexes.length)];
 
       // записать индекс скрытых слов в массив coverIteration, с условием что индекс больше нуля чтобы не записывать undefined значения
+      // без этого кода когда слова в строке заканчивались в массив coverIteration записывались undefined значения и кнопка uncover на работала сразу
       if (indexToCover >= 0) {
         coverIteration[index] = indexToCover;
       }
     });
 
-    if (coverIteration.length === 0) {
-      return;
-    }
-
     // почему-то не работает
     // setCoverIterations((prevIteration) => [...prevIteration, coverIteration]);
 
-    // обновление массива из массивов coverIterations новым элементом из массива coverIteration с адресами скрытых слов в строке
+    // перезаписываем currentIteration
     setCurrentIteration(tempCurrentIteration);
+
+    // обновление массива из массивов coverIterations новым элементом из массива coverIteration с адресами скрытых слов в строке
+    // copy array to temp
     const temp = coverIterations.copyWithin();
+    // add new item
     temp.push(coverIteration);
+    // rewrite coverIterations array
     setCoverIterations(temp);
 
-    // обновление текста стиха с заменой скрытого слова на звездочки
+    // обновление текста стиха с заменой скрытого слова на хэштег
     const updatedPoem = CreatePoem(
       coverIterations,
       textLines,
       tempCurrentIteration
     );
 
-    // обновляем текст с замененными словами на звездочки
+    // обновляем текст с замененными словами на хэштег
     setPoemLines(updatedPoem);
   };
 
@@ -96,7 +103,7 @@ function Text(props) {
     const tempCurrentIteration = currentIteration - 1;
     setCurrentIteration(tempCurrentIteration);
 
-    // обновление текста стиха с заменой скрытого слова на звездочки
+    // обновление текста стиха с заменой скрытого слова на хэштег
     const updatedPoem = CreatePoem(
       coverIterations,
       textLines,
@@ -107,6 +114,7 @@ function Text(props) {
     setPoemLines(updatedPoem);
   };
 
+  // замена решеток на скрытие через CSS
   const coverSymbol = (line) => {
     return line.replace(/\#/g, '<span class="symbol-overlay">#</span>');
   };

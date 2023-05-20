@@ -7,6 +7,7 @@ export default function CreatePoem(
   return poemLines.map((line, lineIndex) => {
     //проходимся по 2D массиву и записываем адреса слов которые будут скрыты в каждой строке
     const coveredWordsIndexes = coverIterations.flatMap((iteration, index) => {
+      // если индекс больше currentIteration перезаписывать массив не нужно
       if (index > currentIteration) return [];
       return iteration[lineIndex];
     });
@@ -14,7 +15,7 @@ export default function CreatePoem(
     // делим стринг из строки на массив из слов
     const words = line.split(" ");
 
-    // проходимся по массиву из слов и меняем слова находящиеся по адресу который должен быть скрыт на звездочки и собираем вместе
+    // проходимся по массиву из слов и меняем слова находящиеся по адресу который должен быть скрыт на хэштег и собираем вместе
     return words
       .map((word, index) => {
         if (coveredWordsIndexes.includes(index)) {
