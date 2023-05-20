@@ -32,6 +32,8 @@ function App() {
     }
   }, []);
 
+  const isTextEmpty = textValue.trim() === "";
+
   return (
     <div className="d-flex flex-column justify-content-between align-items-between body">
       <Routes>
@@ -76,8 +78,13 @@ function App() {
                   onChange={handleTextChange}
                   placeholder="Введите свой текст"
                   className="Inter-400"></textarea>
-                <Link to="/text" state={{ myText: textValue }}>
-                  <button className="next-page-button" type="submit">
+                <Link
+                  to={isTextEmpty ? "#" : "/text"}
+                  state={{ myText: textValue }}>
+                  <button
+                    className="next-page-button"
+                    type="submit"
+                    disabled={isTextEmpty}>
                     Далее
                   </button>
                 </Link>

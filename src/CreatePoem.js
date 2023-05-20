@@ -18,7 +18,7 @@ export default function CreatePoem(
     return words
       .map((word, index) => {
         if (coveredWordsIndexes.includes(index)) {
-          return word.replace(/[a-zA-ZА-Яа-яғқәіөңұүӘӨҒҚІҢҰҮ']/g, "*");
+          return word.replace(/[a-zA-ZА-Яа-яғқәіөңұүӘӨҒҚІҢҰҮ']/g, "#");
         } else {
           return word;
         }

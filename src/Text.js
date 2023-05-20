@@ -107,6 +107,10 @@ function Text(props) {
     setPoemLines(updatedPoem);
   };
 
+  const coverSymbol = (line) => {
+    return line.replace(/\*/g, '<span class="symbol-overlay">*</span>');
+  };
+
   return (
     <div>
       <div className="d-flex justify-content-between header-poem-page">
@@ -132,20 +136,12 @@ function Text(props) {
         <div>
           {/* проходимся по массиву из слов стиха и выводим их на экран */}
           {poemLines.map((line, index) => (
-            <div key={index}>{line}</div>
+            <div
+              key={index}
+              dangerouslySetInnerHTML={{ __html: coverSymbol(line) }}></div>
           ))}
         </div>
       </div>
-      {/* <div>
-        <p
-          style={{ whiteSpace: "pre-line" }}
-          id={isCovered ? "covered-text" : ""}>
-          {location.state.myText}
-        </p>
-        <button className="cover-button" onClick={handleToggleCover}>
-          Cover
-        </button>
-      </div> */}
     </div>
   );
 }

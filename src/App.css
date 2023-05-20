@@ -272,6 +272,21 @@ footer {
 }
 
 .poem-text {
-  padding: 100px 5%;
+  padding: 150px 5% 50px 5%;
   text-align: center;
+}
+
+.symbol-overlay {
+  position: relative;
+}
+
+.symbol-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #005691; /* Replace with your desired styling */
+  /* Add other styles to cover or decorate the symbol */
 }
