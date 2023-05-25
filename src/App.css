@@ -87,7 +87,7 @@ header {
 
 #yourpoem {
   /* height: 100vh; */
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 textarea {
@@ -96,10 +96,13 @@ textarea {
   resize: none;
   outline: transparent;
   font-size: 16px;
-  border: none;
-  background-color: transparent;
+  border: 2px solid #005691;
+  border-radius: 10px;
+  background-color: #ffffff;
   min-height: 500px;
   height: inherit;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 textarea::placeholder {

@@ -47,10 +47,6 @@ function Text(props) {
     return line.replace(/\#/g, '<span class="symbol-overlay">#</span>');
   };
 
-  console.log(poemLines);
-  console.log(coverIterations);
-  console.log(currentIteration);
-
   return (
     <div>
       <div className="d-flex justify-content-between header-poem-page">
