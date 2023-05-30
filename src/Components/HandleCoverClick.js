@@ -50,10 +50,19 @@ export default function HandleCoverClick(
 
     // записать индекс скрытых слов в массив coverIteration, с условием что индекс больше нуля чтобы не записывать undefined значения
     // без этого кода когда слова в строке заканчивались в массив coverIteration записывались undefined значения и кнопка uncover на работала сразу
+
     if (indexToCover >= 0) {
       coverIteration[index] = indexToCover;
+    } else {
+      return;
     }
+
+    console.log(indexToCover);
   });
+
+  if (coverIteration.length === 0) {
+    return;
+  }
 
   // почему-то не работает
   // setCoverIterations((prevIteration) => [...prevIteration, coverIteration]);

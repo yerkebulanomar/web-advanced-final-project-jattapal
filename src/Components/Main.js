@@ -29,32 +29,66 @@ export default function Main() {
           onClick={() => {
             window.location.replace("/");
           }}>
-          Jattap_al
+          Jattap al
         </button>
 
         <div className="d-flex flex-row nav-btns">
           <button
             className="nav-btn Inter-500 white"
-            onClick={() => window.location.replace("/#yourpoem")}>
-            Свой стих
-          </button>
-          <button
-            className="nav-btn Inter-500 white"
             onClick={() => window.location.replace("/#instructions")}>
             Инструкция
           </button>
-
           <button
             className="nav-btn Inter-500 white"
-            onClick={() => window.location.replace("/#examples")}>
-            Примеры
+            onClick={() => window.location.replace("/#yourpoem")}>
+            Свой стих
           </button>
         </div>
       </header>
-      x
+      <div>
+        <h3 id="instructions">
+          <span className="title-text">
+            Jattap al - это веб приложение для облегчения заучивания стихов и
+            текстов{"\n\n"}
+          </span>
+          {json.instructions}
+        </h3>
+        <div className="d-flex flex-column" id="examples">
+          <div className="d-flex justify-content-center example-poems">
+            <Link to="/text" state={{ myText: json.bobDylan }}>
+              <h6>
+                <span className="poem-title">
+                  Bob Dylan - Blowin' in the wind{"\n\n"}
+                </span>
+              </h6>
+            </Link>
+            <Link to="/text" state={{ myText: json.bata }}>
+              <h6>
+                <span className="poem-title">
+                  Бата - Құдай берсін, кем қылмасын...{"\n\n"}
+                </span>
+              </h6>
+            </Link>
+          </div>
+          <div className="d-flex justify-content-center example-poems">
+            <Link to="/text" state={{ myText: json.yasin }}>
+              <h6>
+                <span className="poem-title">Коран - сура Ясин{"\n\n"}</span>
+              </h6>
+            </Link>
+            <Link to="/text" state={{ myText: json.pushkin }}>
+              <h6>
+                <span className="poem-title">
+                  Пушкин - Я помню чудное мгновенье...{"\n\n"}
+                </span>
+              </h6>
+            </Link>
+          </div>
+        </div>
+      </div>
       <form className="d-flex flex-column align-items-center" id="yourpoem">
         <textarea
-          ref={textareaRef}
+          // ref={textareaRef}
           value={textValue}
           onChange={handleTextChange}
           placeholder="Введите свой текст"
@@ -68,45 +102,6 @@ export default function Main() {
           </button>
         </Link>
       </form>
-      <h3 id="instructions">
-        <span className="title-text">
-          Jattap_al - это веб приложение для облегчения заучивания стихов и
-          текстов{"\n\n"}
-        </span>
-        {json.instructions}
-      </h3>
-      <div className="d-flex flex-column" id="examples">
-        <div className="d-flex justify-content-center example-poems">
-          <Link to="/text" state={{ myText: json.bobDylan }}>
-            <h6>
-              <span className="poem-title">
-                Bob Dylan - Blowin' in the wind{"\n\n"}
-              </span>
-            </h6>
-          </Link>
-          <Link to="/text" state={{ myText: json.bata }}>
-            <h6>
-              <span className="poem-title">
-                Бата - Құдай берсін, кем қылмасын...{"\n\n"}
-              </span>
-            </h6>
-          </Link>
-        </div>
-        <div className="d-flex justify-content-center example-poems">
-          <Link to="/text" state={{ myText: json.yasin }}>
-            <h6>
-              <span className="poem-title">Коран - сура Ясин{"\n\n"}</span>
-            </h6>
-          </Link>
-          <Link to="/text" state={{ myText: json.pushkin }}>
-            <h6>
-              <span className="poem-title">
-                Пушкин - Я помню чудное мгновенье...{"\n\n"}
-              </span>
-            </h6>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
